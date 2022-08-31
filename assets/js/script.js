@@ -6,7 +6,7 @@ var passLength;
 var charTypes = [true, true, true, true];
 
 // library of available characters to choose from for the password
-var charLibrary = ["abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", " !@#$%^&*()`~'/?"];
+var charLibrary = ["abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"];
 var passLibrary = "";
 var password = "";
 
@@ -93,4 +93,7 @@ generateBtn.addEventListener("click", function() {
   
   writePassword();
   
+
 });
+
+console.log(charLibrary);
