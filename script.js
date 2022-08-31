@@ -81,7 +81,9 @@ var writePassword = function() {
     password += passLibrary.charAt(Math.floor(Math.random()*passLibrary.length));
   }
 
-  console.log(password);
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+
   return;
 }
 
