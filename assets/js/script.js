@@ -1,5 +1,3 @@
-// Assignment code here
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -68,6 +66,7 @@ var getCharTypes = function() {
   return;
 }
 
+// generate random password according to user input
 var writePassword = function() {
   passLibrary = "";
   for (let index in charTypes) {
@@ -77,10 +76,11 @@ var writePassword = function() {
   }
 
   password = "";
-  for (let index=0; index < passLength; index++) {
+  for (index=0; index < passLength; index++) {
     password += passLibrary.charAt(Math.floor(Math.random()*passLibrary.length));
   }
 
+  // Use queryselector to select the part of the html we want the password to appear
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
@@ -88,7 +88,7 @@ var writePassword = function() {
 }
 
 // Add event listener to generate button and write password
-generateBtn.addEventListener("click", function getPassword() {
+generateBtn.addEventListener("click", function() {
   passwordPrompts();
   
   writePassword();
