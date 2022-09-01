@@ -12,14 +12,18 @@ var password = "";
 
 // function to get user input for types of password criteria
 var passwordPrompts = function() {
-  var userChoice = window.prompt("What kind of requirements would you like your password to meet?\n" +
+  var userChoice = prompt("What kind of requirements would you like your password to meet?\n" +
   "Type 1 if you want both length and character requirements\n" +
   "Type 2 if you want length requirement only (password will consist of lowercase letters only)\n" +
   "Type 3 if you want character requirement(s) only (password will be 8 characters long)\n" +
   "Type 4 if you want default settings (8 characters long, lowercase letters only)");
 
-  if (userChoice < 1 || userChoice > 4) {
-    window.alert("Invalid entry");
+  if (!userChoice) {
+    return;
+  }
+ 
+  if (!(userChoice == 1 || userChoice == 2 || userChoice == 3 || userChoice == 4)) {
+    alert("Invalid entry");
     passwordPrompts();
     return;
   }
@@ -41,10 +45,10 @@ var passwordPrompts = function() {
 
 // function to get user input for password length
 var getPassLength = function() {
-  passLength = window.prompt("Please enter the length of password needed. (minimum 8, maximum 128");
+  passLength = prompt("Please enter the length of password needed. (minimum 8, maximum 128");
 
-  if (passLength < 8 || passLength > 128) {
-    window.alert("Invalid entry");
+  if (!(passLength >= 8 && passLength <= 128)) {
+    alert("Invalid entry");
     getPassLength();
     return;
   }
@@ -53,13 +57,13 @@ var getPassLength = function() {
 
 // function to get user input for password char types
 var getCharTypes = function() {
-  charTypes[0] = window.confirm("Do you want lowercase letters in your password?");
-  charTypes[1] = window.confirm("Do you want UPPERCASE letters in your password?");
-  charTypes[2] = window.confirm("Do you want numeric characters in your password?");
-  charTypes[3] = window.confirm("Do you want special characters in your password?");
+  charTypes[0] = confirm("Do you want lowercase letters in your password?");
+  charTypes[1] = confirm("Do you want UPPERCASE letters in your password?");
+  charTypes[2] = confirm("Do you want numeric characters in your password?");
+  charTypes[3] = confirm("Do you want special characters in your password?");
 
-  if (!charTypes[0] && !charTypes[1] && !charTypes[2] && !charTypes[3]) {
-    window.alert("Please select at least one type of characters.");
+  if (!(charTypes[0] || charTypes[1] || charTypes[2] || charTypes[3])) {
+    alert("Please select at least one type of characters.");
     getCharTypes();
     return;
   }
@@ -92,8 +96,4 @@ generateBtn.addEventListener("click", function() {
   passwordPrompts();
   
   writePassword();
-  
-
 });
-
-console.log(charLibrary);
